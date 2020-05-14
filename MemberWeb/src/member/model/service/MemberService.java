@@ -31,4 +31,20 @@ public class MemberService {
 
 	}
 
+	public Member selectMemberOne(String userId) {
+		Connection conn = null;
+		Member member = null;
+
+		try {
+			conn = factory.createConnection();
+			member = new MemberDAO().selectOne(conn, userId);
+			return member;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return member;
+
+	}
+
 }
