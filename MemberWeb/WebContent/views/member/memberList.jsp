@@ -37,7 +37,12 @@
 			<td><%=mOne.getEmail()%></td>
 			<td><%=mOne.getPhone()%></td>
 			<td><%=mOne.getAddress()%></td>
-			<td><%=mOne.getGender()%></td>
+			
+			<% if(mOne.getGender().equals("M")){ %>
+			<td>남자</td>
+			<% } else { %>
+			<td>여자</td>
+			<% } %>
 			<td><%=mOne.getHobby()%></td>
 			<td><%=mOne.getEnrollDate()%></td>
 		</tr>
