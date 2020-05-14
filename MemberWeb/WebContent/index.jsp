@@ -22,7 +22,7 @@
 	<a href="/myinfo?userId=<%= member.getUserId() %>"> 마이페이지</a>
 	<a href="#">업로드</a>
 	<a href="#">다운로드</a>
-	<a href="#">전체회원조회</a>
+	<a href="/MemberListServlet">전체회원조회</a>
 	<br>
 
 	<%

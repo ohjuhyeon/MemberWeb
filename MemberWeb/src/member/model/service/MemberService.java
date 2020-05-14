@@ -2,6 +2,7 @@ package member.model.service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import common.ConnectionFactory;
 import member.model.dao.MemberDAO;
@@ -44,6 +45,21 @@ public class MemberService {
 			e.printStackTrace();
 		}
 		return member;
+
+	}
+
+	public ArrayList<Member> selectMemberList() {
+		Connection conn = null;
+		ArrayList<Member> list = null;
+		try {
+			conn = factory.createConnection();
+			list = new MemberDAO().selectMemberList(conn);
+			return list;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
 
 	}
 
