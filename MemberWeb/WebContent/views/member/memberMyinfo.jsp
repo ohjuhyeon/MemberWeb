@@ -21,8 +21,24 @@
 	성별 : <%= member.getGender() %><br>
 	취미 : <%= member.getHobby() %><br>
 	
+	<script>
+	
+	function question(){
+		var result = window.confirm("정말로 회원탈퇴를 하시겠습니까?");
+		
+		if(result){
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+	
+	
+	</script>
+	
 	<a href="/index.jsp">메인페이지로 이동하기</a>
-	<a href ="/mdelete">회원 탈퇴하기</a>
+	<a href ="/mdelete" id="mdel" onclick="return question();">회원 탈퇴하기</a>
 
 </body>
 </html>
