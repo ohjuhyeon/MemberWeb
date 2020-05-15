@@ -21,7 +21,18 @@
 	이메일 : <input type="email" name ="email" id="email" value="<%=member.getEmail()%>"><br>
 	휴대폰 : <input type="text" name ="phone" id="phone" value="<%=member.getPhone()%>"><br>
 	주소 : <input type="text" name ="address" id="address" value="<%=member.getAddress()%>"><br>
-	성별 : <input type="text" name ="gender" id="gender" value="<%=member.getGender()%>"> <br>
+	
+	성별 : 
+	
+	<% if (member.getGender().equals("M")) {%>
+		<input type="radio" name ="gender" id="gender" value="M" checked readonly>남자
+		<input type="radio" name ="gender" id="gender" value="F" readonly>여자
+	<%} else {%>
+		<input type="radio" name ="gender" id="gender" value="M" readonly>남자
+		<input type="radio" name ="gender" id="gender" value="F" checked>여자
+	<%} %>
+	<br>
+	
 	취미 : <input type="text" name ="hobby" id="hobby" value="<%=member.getHobby()%>"><br>
 	
 	<input type="submit" value ="정보수정">
