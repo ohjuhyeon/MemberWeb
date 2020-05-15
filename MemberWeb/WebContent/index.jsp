@@ -34,8 +34,10 @@
 
 		ID : <input type="text" name="userId" id="userId"> <br>
 		PW : <input type="password" name="userPwd" id="userPwd"> <br>
-		<input type="submit" value="로그인"> <input type="reset"
-			value="취소"> <a href="#">회원가입</a> <a href="#">공지사항</a>
+		<input type="submit" value="로그인"> 
+		<input type="reset" value="취소"> 
+		<a href="/views/member/enroll.html">회원가입</a> 
+		<a href="#">공지사항</a>
 	</form>
 	<%
 		}

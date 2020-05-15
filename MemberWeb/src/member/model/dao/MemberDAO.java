@@ -114,4 +114,31 @@ public class MemberDAO {
 		return list;
 	}
 
+	public int insertMember(Connection conn, Member member) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int result = 0;
+		String query = "INSERT INTO MEMBER VALUES(?,?,?,?,?,?,?,?,?,sysdate)";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1,  member.getUserId());
+			pstmt.setString(2,  member.getUserPwd());
+			pstmt.setString(3,  member.getUserName());
+			pstmt.setString(4,  member.getGender());
+			pstmt.setInt(5,  member.getAge());
+			pstmt.setString(6,  member.getEmail());
+			pstmt.setString(7,  member.getPhone());
+			pstmt.setString(8,  member.getAddress());
+			pstmt.setString(9,  member.getHobby());
+			
+			result = pstmt.executeUpdate();
+
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+		
+		return result;
+	}
+
 }
