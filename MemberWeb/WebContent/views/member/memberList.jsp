@@ -31,7 +31,8 @@
 		</tr>
 		<%for (Member mOne : list) {%>
 		<tr>
-			<td><%=mOne.getUserId()%></td>
+			<td><a href="/myinfo?userId=<%= mOne.getUserId() %>"><%= mOne.getUserId() %></a></td>
+			
 			<td><%=mOne.getUserName()%></td>
 			<td><%=mOne.getAge()%></td>
 			<td><%=mOne.getEmail()%></td>
