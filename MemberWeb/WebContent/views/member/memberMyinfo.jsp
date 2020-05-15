@@ -11,15 +11,23 @@
 </head>
 <body>
 
-	아이디 : <%= member.getUserId() %><br>
-	패스워드 : <%= member.getUserPwd() %><br>
-	이름 : <%= member.getUserName() %><br>
-	나이 : <%= member.getAge() %><br>
-	이메일 : <%= member.getEmail() %><br>
-	휴대폰 : <%= member.getPhone() %><br>
-	주소 : <%= member.getAddress() %><br>
-	성별 : <%= member.getGender() %><br>
-	취미 : <%= member.getHobby() %><br>
+	<form action="/mupdate" method="post"> 
+
+	아이디 : <input type="text" name ="userId" id="userId" value="<%=member.getUserId()%>"> <br>
+	패스워드 : <input type="password" name ="userPwd" id="userPwd"><br>
+	패스워드확인 : <input type="password" name ="userPwdRe" id="userPwdRe"><br>
+	이름 : <input type="text" name ="userName" id="userName" value="<%=member.getUserName()%>" readonly><br>
+	나이 : <input type="text" name ="age" id="age" value="<%= member.getAge() %>" readonly ><br>
+	이메일 : <input type="email" name ="email" id="email" value="<%=member.getEmail()%>"><br>
+	휴대폰 : <input type="text" name ="phone" id="phone" value="<%=member.getPhone()%>"><br>
+	주소 : <input type="text" name ="address" id="address" value="<%=member.getAddress()%>"><br>
+	성별 : <input type="text" name ="gender" id="gender" value="<%=member.getGender()%>"> <br>
+	취미 : <input type="text" name ="hobby" id="hobby" value="<%=member.getHobby()%>"><br>
+	
+	<input type="submit" value ="정보수정">
+	<input type="reset" value ="취소">
+	
+	</form>
 	
 	<script>
 	
