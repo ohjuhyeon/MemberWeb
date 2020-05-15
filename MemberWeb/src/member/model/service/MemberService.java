@@ -85,4 +85,23 @@ public class MemberService {
 
 	}
 
+	public int deleteMember(String userId) {
+		Connection conn = null;
+		int result = 0;
+		
+		try {
+			conn = factory.createConnection();
+			result = new MemberDAO().deleteMember(conn, userId);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(result >0) {
+			factory.commit(conn);
+		}else {
+			factory.rollback(conn);
+		}
+		return result;
+	}
+
 }

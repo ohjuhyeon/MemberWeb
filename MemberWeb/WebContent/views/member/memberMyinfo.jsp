@@ -20,6 +20,9 @@
 	주소 : <%= member.getAddress() %><br>
 	성별 : <%= member.getGender() %><br>
 	취미 : <%= member.getHobby() %><br>
+	
+	<a href="/index.jsp">메인페이지로 이동하기</a>
+	<a href ="/mdelete">회원 탈퇴하기</a>
 
 </body>
 </html>
