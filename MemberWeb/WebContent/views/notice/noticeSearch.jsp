@@ -48,7 +48,7 @@
 				</td>
 
 				<td align="right">
-					<form action="" method="post">
+					<form action="/views/notice/noticeWrite.html" method="post">
 						<input type="submit" value="글쓰기">
 					</form>
 				</td>

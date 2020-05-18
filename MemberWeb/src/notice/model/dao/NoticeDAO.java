@@ -186,7 +186,7 @@ public class NoticeDAO {
 		} else {
 			pageTotalCount = recordTotalCount / recordCountPerPage;
 		}
-		
+
 		// 오류방지용
 		if (currentPage < 1) {
 			currentPage = 1;
@@ -228,4 +228,31 @@ public class NoticeDAO {
 		return sb.toString();
 
 	}
+
+	public int insertNotice(Connection conn, String subject, String content, String userId) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String query = "INSERT INTO NOTICE VALUES(SEQ_NOTICE.NEXTVAL,?,?,?,SYSDATE)";
+
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, subject);
+			pstmt.setString(2, content);
+			pstmt.setString(3, userId);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return result;
+
+	}
+
 }

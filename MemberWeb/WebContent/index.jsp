@@ -25,6 +25,7 @@
 	<a href="#">업로드</a>
 	<a href="#">다운로드</a>
 	<a href="/MemberListServlet">전체회원조회</a>
+	<a href="/notice">공지사항</a>
 	<br>
 
 	<%
@@ -35,9 +36,10 @@
 
 		ID : <input type="text" name="userId" id="userId"> <br>
 		PW : <input type="password" name="userPwd" id="userPwd"> <br>
-		<input type="submit" value="로그인"> <input type="reset"
-			value="취소"> <a href="/views/member/enroll.html">회원가입</a> <a
-			href="/notice">공지사항</a>
+		<input type="submit" value="로그인"> 
+		<input type="reset"value="취소"> 
+		<a href="/views/member/enroll.html">회원가입</a> 
+		<a href="/notice">공지사항</a>
 	</form>
 	<%
 		}

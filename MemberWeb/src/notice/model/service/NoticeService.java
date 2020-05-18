@@ -56,4 +56,21 @@ public class NoticeService {
 		return pd;
 	}
 
+	public int insertNotice(String subject, String content, String userId) {
+		Connection conn = null;
+		int result = 0;
+		try {
+			conn = factory.createConnection();
+			result = new NoticeDAO().insertNotice(conn,subject,content,userId);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		if(result>0) {
+			factory.commit(conn);
+		}else {
+			factory.rollback(conn);
+		}
+		return result;
+	}
+
 }
