@@ -255,4 +255,30 @@ public class NoticeDAO {
 
 	}
 
+	public Notice noticeSelect(Connection conn, int noticeNo) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		Notice notice = null;
+		String query = "SELECT * FROM NOTICE WHERE NOTICENO = ?";
+
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, noticeNo);
+			rset = pstmt.executeQuery();
+			if (rset.next()) {
+				notice = new Notice();
+				notice.setNoticeNo(rset.getInt("NOTICENO"));
+				notice.setSubject(rset.getString("SUBJECT"));
+				notice.setContents(rset.getString("CONTENTS"));
+				notice.setUserId(rset.getString("USERID"));
+				notice.setRegDate(rset.getDate("REGDATE"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return notice;
+	}
+
 }

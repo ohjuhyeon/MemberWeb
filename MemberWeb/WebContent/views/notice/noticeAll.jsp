@@ -29,7 +29,7 @@
 			%>
 			<tr>
 				<td><%=notice.getNoticeNo()%></td>
-				<td><%=notice.getSubject()%></td>
+				<td><a href="/noticeSelect?noticeNo=<%= notice.getNoticeNo()%>"> <%=notice.getSubject()%></a></td>
 				<td><%=notice.getUserId()%></td>
 				<td><%=notice.getRegDate()%></td>
 			</tr>

@@ -73,4 +73,19 @@ public class NoticeService {
 		return result;
 	}
 
+	public Notice noticeSelect(int noticeNo) {
+		Connection conn = null;
+		Notice notice = null;
+		
+		try {
+			conn = factory.createConnection();
+			notice = new NoticeDAO().noticeSelect(conn, noticeNo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return notice;
+	}
+
 }
