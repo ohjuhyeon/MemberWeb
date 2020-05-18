@@ -3,8 +3,9 @@
 	pageEncoding="UTF-8" import="notice.model.vo.Notice, java.util.*"%>
 
 <%
-	PageData pd = (PageData) request.getAttribute("PageData");
+	PageData pd = (PageData) request.getAttribute("pageData");
 	ArrayList<Notice> noticeList = pd.getPageList();
+	String search = (String)request.getAttribute("search");
 %>
 
 <!DOCTYPE html>
@@ -36,26 +37,25 @@
 			<%
 				}
 			%>
-			
+
 			<tr>
 				<td colspan="3" align="center">
-					<form action = "/noticesearch" method="get">
-					
-					<input type="text" name="search">
-					<input type = "submit" value="검색">
+					<form action="/noticesearch" method="get">
+
+						<input type="text" name="search"> <input type="submit"
+							value="<%=search%>">
 					</form>
 				</td>
-				
-				<td align ="right">
-					<form action ="" method="post">
-					<input type="submit"value="글쓰기">
+
+				<td align="right">
+					<form action="" method="post">
+						<input type="submit" value="글쓰기">
 					</form>
-					</td>
-					
-				<tr>
- 				<td colspan="4" align="center"><%=pd.getPageNavi()%></td>
-				</tr>
-				<!-- //< 1 2 3 4 5 >   
+				</td>
+			<tr>
+				<td colspan="4" align="center"><%=pd.getPageNavi()%></td>
+			</tr>
+			<!-- //< 1 2 3 4 5 >   
    //currentPage : 현재 페이지 번호
    //rescordCountPage : 1페이지에 몇개의 게시물 출력이 되는지
    //recordTotalCount : 전체 게시물의 개수
@@ -64,6 +64,7 @@
 
 			</tr>
 		</table>
+		<a href="/index.jsp">메인페이지로 이동</a>
 	</center>
 
 </body>

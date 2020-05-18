@@ -40,4 +40,20 @@ public class NoticeService {
       
    }
 
+	public PageData noticeSearchList(int currentPage, String search) {
+		Connection conn = null;
+		int recordCountPerPage = 10;
+        int naviCountPerPage=5; //1 2 3 4 5 네비게이션의 갯수 지정
+        PageData pd = new PageData();
+        try {
+			conn = factory.createConnection();
+	        pd.setPageList(new NoticeDAO().noticeSearchList(conn, currentPage, recordCountPerPage, search));
+	        pd.setPageNavi(new NoticeDAO().getSearchPageNavi(conn, currentPage, recordCountPerPage, naviCountPerPage, search));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return pd;
+	}
+
 }
