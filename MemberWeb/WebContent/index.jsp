@@ -18,8 +18,9 @@
 		if (member != null) {
 	%>
 	[<%=member.getUserName()%>] 님 환영합니다.
-	<a href="/logout">로그아웃 </a><br>
-	<a href="/myinfo?userId=<%= member.getUserId() %>"> 마이페이지</a>
+	<a href="/logout">로그아웃 </a>
+	<br>
+	<a href="/myinfo?userId=<%=member.getUserId()%>"> 마이페이지</a>
 	<%-- <a href="/views/member/memberMyInfo.jsp?userId=<%= member.getUserId() %>"> 마이페이지</a> --%>
 	<a href="#">업로드</a>
 	<a href="#">다운로드</a>
@@ -34,10 +35,9 @@
 
 		ID : <input type="text" name="userId" id="userId"> <br>
 		PW : <input type="password" name="userPwd" id="userPwd"> <br>
-		<input type="submit" value="로그인"> 
-		<input type="reset" value="취소"> 
-		<a href="/views/member/enroll.html">회원가입</a> 
-		<a href="#">공지사항</a>
+		<input type="submit" value="로그인"> <input type="reset"
+			value="취소"> <a href="/views/member/enroll.html">회원가입</a> <a
+			href="/notice">공지사항</a>
 	</form>
 	<%
 		}
