@@ -17,7 +17,7 @@
 
 <h3> <%= notice.getContents() %></h3>
 
-<a href="#">수정</a>
+<a href=" /noticeModify?noticeNo=<%= notice.getNoticeNo() %> ">수정</a>
 <a href="/notice">목록</a>
 <a href="#">삭제</a>
 

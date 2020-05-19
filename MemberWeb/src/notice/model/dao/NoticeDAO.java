@@ -281,4 +281,28 @@ public class NoticeDAO {
 		return notice;
 	}
 
+	public int modifyNotice(Connection conn, String subject, String content, int noticeNo) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String query = "UPDATE NOTICE SET SUBJECT=?, CONTENTS=?, REGDATE=SYSDATE WHERE NOTICENO =?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, subject);
+			pstmt.setString(2, content);
+			pstmt.setInt(3, noticeNo);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
 }

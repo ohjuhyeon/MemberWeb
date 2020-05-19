@@ -1,0 +1,18 @@
+@ 공지사항 관리
+
+1. NoticeServlet -> noticeAll.jsp
+
+2. NoticeSearchServlet -> noticeSearch.jsp
+
+3. NoticeWriteServlet -> X(페이지 이동)
+
+4. NoticeSelectServlet -> noticeContent.jsp
+
+@공지 등록
+글쓰기 -> noticeWrite.html 이동 -> NoticeWriteServlet으로 요청
+
+@공지 수정
+수정 -> 페이지 이동
+@공지 삭제
+@댓글, 대댓글..
+@파일 업로드, 다운로드

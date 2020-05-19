@@ -88,4 +88,25 @@ public class NoticeService {
 		return notice;
 	}
 
+	public int modifyNotice(String subject, String content, int noticeNo) {
+		
+		Connection conn = null;
+		int result = 0;
+		try {
+			conn = factory.createConnection();
+			result = new NoticeDAO().modifyNotice(conn,subject,content,noticeNo);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(result>0) {
+			factory.commit(conn);
+		}
+		else {
+			factory.rollback(conn);
+		}
+		return result;
+	}
+
 }
