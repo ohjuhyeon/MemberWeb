@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="notice.model.vo.Notice, java.util.*"%>
+	pageEncoding="UTF-8" import="notice.model.vo.*, java.util.*"%>
 <%
 	Notice notice = (Notice) request.getAttribute("content");
+	ArrayList<NoticeComment> comments = notice.getComments();
+	
 %>
 
 <!DOCTYPE html>
@@ -20,6 +22,20 @@
 <a href="/noticeModify?noticeNo=<%= notice.getNoticeNo() %> ">수정</a>
 <a href="/notice">목록</a>
 <a href="/noticeDelete?noticeNo=<%= notice.getNoticeNo() %>" onclick="return question();">삭제</a>
+
+<table>
+
+	<tr><th>댓글</th><th>아이디</th><th>날짜</th></tr>
+	<% for(NoticeComment comment : comments) { %>
+		<tr>
+			<td><%= comment.getContent()%></td>
+			<td><%= comment.getUserId()%></td>
+			<td><%= comment.getRegDate()%></td>
+		</tr>
+	<% } %>
+
+
+</table>
 
 
 <script>

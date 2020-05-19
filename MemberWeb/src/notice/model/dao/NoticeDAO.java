@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import notice.model.vo.Notice;
+import notice.model.vo.NoticeComment;
 
 public class NoticeDAO {
 
@@ -326,6 +327,42 @@ public class NoticeDAO {
 			}
 		}
 		return result;
+	}
+
+	public ArrayList<NoticeComment> noticeComment(Connection conn, int noticeNo) {
+		//SELECT * FROM NOTICECOMMENT WHERE NOTICEDNO =?
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<NoticeComment> list = new ArrayList<NoticeComment>();
+		String query = "SELECT * FROM NOTICECOMMENT WHERE NOTICENO=?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, noticeNo);
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				NoticeComment comment = new NoticeComment();
+				comment.setCommentNo(rset.getInt("COMMENTNO"));
+				comment.setNoticeNo(rset.getInt("NoticeNo"));
+				comment.setContent(rset.getString("CONTENT"));
+				comment.setUserId(rset.getString("USERID"));
+				comment.setRegDate(rset.getDate("REGDATE"));
+				list.add(comment);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				rset.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		return list;
 	}
 
 }

@@ -1,6 +1,7 @@
 package notice.model.vo;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class Notice {
 
@@ -9,6 +10,7 @@ public class Notice {
 	private String userId;
 	private String contents;
 	private Date regDate;
+	private ArrayList<NoticeComment> comments = null;
 	// 댓글
 
 	public Notice() {
@@ -21,6 +23,14 @@ public class Notice {
 		this.userId = userId;
 		this.contents = contents;
 		this.regDate = regDate;
+	}
+
+	public ArrayList<NoticeComment> getComments() {
+		return comments;
+	}
+
+	public void setComments(ArrayList<NoticeComment> comments) {
+		this.comments = comments;
 	}
 
 	public int getNoticeNo() {

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import common.ConnectionFactory;
 import notice.model.dao.NoticeDAO;
 import notice.model.vo.Notice;
+import notice.model.vo.NoticeComment;
 import notice.model.vo.PageData;
 
 public class NoticeService {
@@ -76,10 +77,14 @@ public class NoticeService {
 	public Notice noticeSelect(int noticeNo) {
 		Connection conn = null;
 		Notice notice = null;
+		ArrayList<NoticeComment> cmtList = null;
 		
 		try {
 			conn = factory.createConnection();
 			notice = new NoticeDAO().noticeSelect(conn, noticeNo);
+			cmtList = new NoticeDAO().noticeComment(conn, noticeNo);
+			notice.setComments(cmtList);
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
