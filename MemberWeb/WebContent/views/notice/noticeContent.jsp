@@ -17,10 +17,26 @@
 
 <h3> <%= notice.getContents() %></h3>
 
-<a href=" /noticeModify?noticeNo=<%= notice.getNoticeNo() %> ">수정</a>
+<a href="/noticeModify?noticeNo=<%= notice.getNoticeNo() %> ">수정</a>
 <a href="/notice">목록</a>
-<a href="#">삭제</a>
+<a href="/noticeDelete?noticeNo=<%= notice.getNoticeNo() %>" onclick="return question();">삭제</a>
 
+
+<script>
+	
+	function question(){
+		var result = window.confirm("정말로 게시글을 삭제 하시겠습니까?");
+		
+		if(result){
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+	
+	
+	</script>
 
 
 </body>
